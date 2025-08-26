@@ -1,12 +1,10 @@
-"use client"
-
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { Button } from "./components/ui/button"
+import { Badge } from "./components/ui/badge"
+import { Input } from "./components/ui/input"
 import { Clock, Trophy } from "lucide-react"
-import { Navigation } from "@/components/navigation"
-import { DataService } from "@/lib/data-service"
+import { Navigation } from "./components/navigation"
+import { DataService } from "./lib/data-service"
 
 type PredictionType = "HOME_WIN" | "AWAY_WIN" | "DRAW" | "CORRECT_SCORE" | null
 
@@ -16,7 +14,7 @@ interface Prediction {
   score?: string
 }
 
-export default function HomePage() {
+function App() {
   const upcomingMatches = DataService.getUpcomingMatches()
   const completedMatches = DataService.getCompletedMatches()
   const allMatches = [...upcomingMatches, ...completedMatches]
@@ -253,3 +251,5 @@ export default function HomePage() {
     </div>
   )
 }
+
+export default App
